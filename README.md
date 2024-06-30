@@ -3,11 +3,11 @@
 ![Cloud Honeynet / SOC](https://i.imgur.com/rj5UWwN.png)
 
 ## Introduction
-This project will consist of creating my very own honeynet on Microsoft Azure that will entice attackers, log and monitor malicious traffic generated from these attacks, perform incident response, and implement hardening controls to secure the environment. 
+This tutorial will teach you how to set up and secure a honeynet on Microsoft Azure. A honeynet is a network designed to attract attackers so you can study their behaviors and improve security measures. This tutorial will guide you through the steps from creating a vulnerable honeynet environment to securing it using best practices aligned with NIST standards.
 
 ## Objectives
-The main objective of this project is to create a honeynet that will allow me to analyze live cyberattacks, conduct incident response and investigate event alerts, and study attackers to understand their intentions, tactics, techniques, and procedures. The second objective is to transform the insecure environment into a secure environment by re-configuring the firewall, NGS, implementing Azure Private Links, and administering regulatory compliance, NIST 800-53, and Microsoft Defender for Cloud recommendations.
-
+1. Build a Honeynet: Construct a honeynet to simulate real-world cyberattacks and analyze attacker behaviors and tactics.
+2. Secure the Environment: Enhance security by reconfiguring network settings and applying security controls recommended by NIST 800-53 and Microsoft Defender for Cloud.
 
 ## Before Hardening
 
@@ -19,27 +19,35 @@ The main objective of this project is to create a honeynet that will allow me to
 
 ## Technologies, Regulations, and Azure Components Employed:
 
+- Microsoft Azure Services:
 - Virtual Network (VNet)
 - Network Security Group (NSG)
-- Virtual Machines (2 windows, 1 linux)
-- Log Analytics Workspace for performing Kusto Query (KQL) queries to filters data
-- Azure Key Vault to securely store secrets 
-- Azure Storage Account for storing data 
-- Microsoft Sentinel for Security Information and Event Management (SIEM)
+- Virtual Machines (2 Windows, 1 Linux)
+- Azure Key Vault to securely store secrets
+- Azure Storage for storing data
+- Microsoft Sentinel for Security Information and Event Management (SIEM).
+  
+- Security Tools:
+- Log Analytics Workspace for Kusto Query Language (KQL) queries to filter data
 - Microsoft Defender for Cloud to monitor resources and ingest logs from virtual machines into Log Analytic Workspace
-- Powershell for performing simulated attacks
-- Command Line Interface (CLI) to verify connection to virtual machine
-- Windows Remote Desktop to remotely connect to virtual machines
-- NIST SP 800-53 Revision 4 for Security Controls
-- NIST SP 800-61 Revision 2 for Incident Handling Guidance
+- PowerShell for attack simulations.
+  
+- Regulatory Compliance:
+- NIST SP 800-53 for security controls
+- NIST SP 800-61 for incident response.
+
 
 ## Phase I - Creating The Honeynet 
-I created Windows and Linux virtual machines. Afterward, I intentionally configured the firewall and NGS to allow all traffic from all ports. Additionally, I disabled everything in Microsoft Defender Firewall. This created a vulnerable internet-facing environment that will attract attackers.
+1. Setup Virtual Machines: Deploy two Windows and one Linux virtual machine on Azure.
+2. Configure Network Settings: Intentionally weaken the firewall settings and Network Security Groups to allow all incoming and outgoing traffic, making the VMs susceptible to attacks.
+
 
 ![Firewallrule](https://i.imgur.com/QNfVI72.jpg)
 
-## Phase II - Simulated Attacks & Logging and Monitoring
-Simulated attacks were executed using Powershell to manually trigger events. These simulated attacks consist of Brute Force Attempts, Malware(EICAR Test File), AAD Brute Force Success, Privilege Escalation, and Windows Brute Force Success. Afterward, I utilized KQL queries to filter data from different logs to analyze these triggered events and alerts from actual attackers.
+## Phase II - Simulated Attacks and Monitoring
+1. Execute Simulated Attacks: Use PowerShell scripts to simulate various cyberattacks like brute force attempts and privilege escalation.
+2. Log and Monitor Activities: Utilize Azure's Log Analytics Workspace to run KQL queries that filter and analyze the data from these simulated attacks, capturing real-time events and alerts.
+
 
 SignInLogs for invalid username or password event alerts
 
@@ -57,24 +65,33 @@ Syslog display failed password against Linux virtual machine
 
 ![Syslog](https://i.imgur.com/IsEDYY7.jpg)
 
-## Phase III - Analysis & Incident Assessment and Response
-I assessed several incidents that were generated during the 24 hours of running the insecure environment. For each incident, I analyzed information about the entities that were responsible for these attacks, such as IP address, the tactics, and techniques they used, the type of attack they performed, and the timeline of each attack, and I investigated further into the entity IP address to inspect any related alerts determine whether the incident was a true positive or a false positive.
+## Phase III - Incident Response and Analysis
+1. Assess Incidents: After gathering data for 24 hours, assess each incident by investigating the source, tactics, techniques, and timeline of the attacks.
+2. Classify Incidents: Determine the severity and authenticity of each incident (true positive vs. false positive).
+
 
 ![Incident detail](https://i.imgur.com/MEIisRs.jpg)
 
 ![Incident Visual Investigation](https://i.imgur.com/m8J3GEt.jpg)
 
-## Phase IV - Remediation & Regulatory Compliance Implementation
+## Phase IV - Remediation and Regulatory Compliance 
 
-After I finished analyzing these incidents, I took action to secure this environment by enabling security controls. Security controls consisted of of disabling public access to the virtual machines and blob storage account, I created private endpoints for the storage account and virtual machine, an additional network security group was created to protect the subnet, and a NSG rule was generated for these virtual machines to only allow traffic from my own IP address source, and private links were enabled to keep key vault safe. These security protocols were implemented following the NIST 800-53 regulatory compliance standards.
+  1. Enhance VM's security by implement controls that follow the NIST 800-53 and SP 800-61 regulatory compliance standards:
+   - Disabling public access to the virtual machines and blob storage account.
+   - Creating private endpoints for the storage account and virtual machine.
+   - Setting up additional Network Security Groups to protect subnets.
+   - A NSG rule was generated for these virtual machines to only allow traffic from my own IP source address.
+   - private links were enabled to keep key vault safe.
+ 
+- A Network Security Group (NSG) implements security rules regulating inbound and outbound network traffic by specifying allowed or denied protocols, source and destination IP addresses, and port numbers.
+- A private endpoint is a network interface that enhances security by restricting resource access to the private network domain, shielding it from exposure to the public internet.
+- NIST SP 800-53 provides a framework of security controls aimed at assisting organizations in defending against security threats and vulnerabilities.
+- NIST SP 800-61  is designed to provide organizations with a framework for establishing an incident response program.
 
-- An NSG contains a set of security rules that allow or deny inbound or outbound network traffic based on protocol, source IP address, destination IP address, and port number. This strengthens network traffic control, enhances the protection of resources, and prevents unauthorized access to resources.
-- A private endpoint is a network interface that enforces security by allowing services to be accessed through a private connection. This ensures access to these resources is only within this private virtual network and prevents traffic from being exposed to the public internet.
-- NIST SP 800-53 is a set of guildelines for security controls related to information systems to aide organizations in protecting against security threats or vulnerability.  These guidelines covers access control, incident response, and system and information integrity.  
-- NIST SP 800-61 is a set of guidelines for preparation, detection, analysis, response, and recover from computer security incidents.
-
-## Phase V - Results & Metrics Comparison
-Results and metrics of both insecure and secure environments were measured and recorded to determine the effectiveness of implemented security controls.  
+## Phase V - Results and Reflection
+1. Analyze Before and After Metrics: Compare the number of attacks and types of traffic before and after the security enhancements to evaluate the effectiveness of your security measures.
+2. Reflect on Learning: Understand the critical role of correct security configurations and controls in protecting network resources.
+  
 
 ## Before Hardening 
 
@@ -110,8 +127,6 @@ Metrics were collected during the 2023-05-09 at 21:04 - 2023-05-10 at 21:04 time
 
 ![Before Metrics](https://i.imgur.com/Gj3SFT3.jpg)
 
-## Reflection
-I have learned so much while doing this project. This project has really reinforced the importance of security. It is crucial to have correct security controls and configurations in place to protect your resources. As the before and after metrics highlight the drastic difference between an insecure and a secure environment.  Firewall rules, private endpoints, and not allowing public internet access need to be implemented to prevent disastrous consequences caused by attacks and unauthorized access to valuable resources.
 
 ## Conclusion
-In this project, I created a honeynet using Microsoft Azure. Afterward, I performed logging and monitoring for any attacks against these virtual machines. Additionally, I analyzed these incidents in further detail to understand tactics, techniques, and procedures being executed by attacks. Lastly, I hardened the environment by enforcing security controls following the regulatory compliance NIST 800-53 and NIST 800-61.
+Following this tutorial, you will create a functional honeynet on Azure and gain valuable insights into cybersecurity threats and defense mechanisms. This exercise highlights the importance of proactive security practices in maintaining and securing IT environments against evolving cyber threats.

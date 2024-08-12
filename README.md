@@ -51,19 +51,41 @@ This tutorial will teach you how to set up and secure a honeynet on Microsoft Az
 
 SignInLogs for invalid username or password event alerts
 
-![SignInLogs](https://i.imgur.com/9qKPvnG.jpg)
+//![SignInLogs]()
 
-![SignInLogs](https://i.imgur.com/9A449Il.jpg)
+//![SignInLogs]()
 
 SecuityEvent logs display brute force attacks against Windows virtual machines 
 
-![SecurityEvent](https://i.imgur.com/CyT6QZq.jpg)
+![SecurityEvent](https://i.imgur.com/saEAPDm.png)
 
 ![SecurityEvent](https://i.imgur.com/y8sQDD1.jpg)
 
 Syslog display failed password against Linux virtual machine
 
-![Syslog](https://i.imgur.com/IsEDYY7.jpg)
+![Syslog](https://i.imgur.com/41XpjMJ.png)
+
+![Syslog](https://i.imgur.com/KP4NoPt.png)
+
+SecurityAlert (Microsoft Defender for Cloud)
+
+![SecurityAlert](https://i.imgur.com/ljaMPsJ.png)
+
+![SecurityAlert](https://i.imgur.com/fD4fh0o.png)
+
+SecurityIncident (Sentinel Incidents)
+
+![SecurityIncident](https://i.imgur.com/Ff1a9qT.png)
+
+![SecurityIncident](https://i.imgur.com/ZsNHqMg.png)
+
+NSG Inbound Malicious Flows Allowed
+
+![NSG Inbound Malicious](https://i.imgur.com/YRy1kMm.png)
+
+![NSG Inbound Malicious](https://i.imgur.com/5O9z1PP.png)
+
+
 
 ## Phase III - Incident Response and Analysis
 1. Assess Incidents: After gathering data for 24 hours, assess each incident by investigating the source, tactics, techniques, and timeline of the attacks.
@@ -95,25 +117,19 @@ Syslog display failed password against Linux virtual machine
 
 ## Before Hardening 
 
-This attack world map displays attacks to the MSSQL Server
+This attack world map accentuates how many attacks the Windows virtual machine encountered
 
-
-![MSQQL World Wap](https://i.imgur.com/cOUAHuU.jpg)
+![Windows World Map](https://i.imgur.com/o9EMfkH.png)
 
 
 This attack world map depicts the number of attacks targetted to the Linux virtual machine
 
-
-![Syslog World Map](https://i.imgur.com/WZXK54D.jpg)
-
-This attack world map accentuates how many attacks the Windows virtual machine encountered
-
-![Windows World Map](https://i.imgur.com/YNxOFvV.jpg)
+![Syslog World Map](https://i.imgur.com/DgsdQ63.png)
 
 
 This attack world map represents the large influx of malicious traffic resulted from insecure environment 
 
-![NSG World Map](https://i.imgur.com/rQITjvQ.jpg)
+![NSG World Map](https://i.imgur.com/qXM3PJ5.png)
 
 Metrics were collected during the 2023-05-08 at 21:04 - 2023-05-09 at 21:04 timeframe
 
@@ -123,7 +139,7 @@ Metrics were collected during the 2023-05-08 at 21:04 - 2023-05-09 at 21:04 time
 
 Attack world maps displayed no results, indicating that there has not been any new attacks after securing the environment.  
 
-Metrics were collected during the 2023-05-09 at 21:04 - 2023-05-10 at 21:04 timeframe
+Metrics were collected from 2024-08-10 at 18:50 to 2024-08-11 at 18:50 
 
 ![Before Metrics](https://i.imgur.com/Gj3SFT3.jpg)
 

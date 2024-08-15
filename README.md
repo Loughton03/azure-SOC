@@ -1,7 +1,7 @@
 ![image](https://i.imgur.com/9qPGy4w.png)
 
 ## Introduction
-This tutorial will teach you how to set up and secure a honeynet on Microsoft Azure. A honeynet is a network designed to attract attackers so you can study their behaviors and improve security measures. This tutorial will guide you through the steps from creating a vulnerable honeynet environment to securing it using best practices aligned with NIST standards.
+In this project, I constructed a honeynet in Azure and integrated logs from various resources into a Log Analytics workspace. Microsoft Sentinel creates attack maps, triggers alerts, and generates incidents. I initially measured security metrics in the insecure environment over 24 hours, then applied security controls to harden the environment and measured the metrics again for another 24 hours.
 
 ## Objectives
 1. Build a Honeynet: Construct a honeynet to simulate real-world cyberattacks and analyze attacker behaviors and tactics.
@@ -86,7 +86,6 @@ NSG Inbound Malicious Flows Allowed
 
 ![Incident detail](https://i.imgur.com/MEIisRs.jpg)
 
-![Incident Visual Investigation](https://i.imgur.com/m8J3GEt.jpg)
 
 ## Phase IV - Remediation and Regulatory Compliance 
 
@@ -123,18 +122,18 @@ This attack world map represents the large influx of malicious traffic resulted 
 
 ![NSG World Map](https://i.imgur.com/qXM3PJ5.png)
 
-Metrics were collected from 2023-05-08 at 18:50 - 2023-05-09 at 18:50.
+The table below presents the metrics we recorded in our insecure environment over a 24-hour period. Start time: 2023-05-08 at 18:50 End time: 2023-05-09 at 18:50.
 
 ![Before Metrics](https://i.imgur.com/9E65SUn.png)
 
 ## After Hardening
 
-Attack world maps displayed no results, indicating that there has not been any new attacks after securing the environment.  
+Attack maps displayed no results, indicating that there have been no new attacks after securing the environment.  
 
-Metrics were collected from 2024-08-14 at 18:19 to 2024-08-15 at 18:19.
+The table below presents the metrics we recorded in our insecure environment over a 24-hour period. Start time 2024-08-14 at 18:19 End time 2024-08-15 at 18:19.
 
-![Before Metrics](https://i.imgur.com/ug7mWjY.png)
+![After Metrics](https://i.imgur.com/ug7mWjY.png)
 
 
 ## Conclusion
-Following this tutorial, you will create a functional honeynet on Azure and gain valuable insights into cybersecurity threats and defense mechanisms. This exercise highlights the importance of proactive security practices in maintaining and securing IT environments against evolving cyber threats.
+In this project, a honeynet was set up in Microsoft Azure, with log sources integrated into a Log Analytics workspace. Microsoft Sentinel was utilized to generate alerts and incidents based on the ingested logs. Metrics were measured an insecure environment and after applying security controls. The results highlighted a significant reduction in the number of security events and incidents post-implementation, demonstrating the effectiveness of the security measures.

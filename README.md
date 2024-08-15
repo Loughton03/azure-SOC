@@ -44,7 +44,7 @@ This tutorial will teach you how to set up and secure a honeynet on Microsoft Az
 
 ## Phase II - Simulated Attacks and Monitoring
 1. Execute Simulated Attacks: Use PowerShell scripts to simulate various cyberattacks like brute force attempts and privilege escalation.
-2. Log and Monitor Activities: Utilize Azure's Log Analytics Workspace to run KQL queries that filter and analyze the data from these simulated attacks, capturing real-time events and alerts.
+2. Log and Monitor Activities: Utilize Azure's Log Analytics Workspace to run KQL queries that filter and analyze data from these simulated attacks and live traffic, capturing real-time events and alerts.
 
 
 SecuityEvent logs display brute force attacks against Windows virtual machines 

@@ -1,4 +1,4 @@
-# Azure-SOC-Honeynet-Project (Live Traffic)
+![image](https://github.com/user-attachments/assets/2ff0f189-f94a-4e57-ad64-c175d58cdbe9)# Azure-SOC-Honeynet-Project (Live Traffic)
 
 ![Cloud Honeynet / SOC](https://i.imgur.com/rj5UWwN.png)
 
@@ -48,12 +48,6 @@ This tutorial will teach you how to set up and secure a honeynet on Microsoft Az
 1. Execute Simulated Attacks: Use PowerShell scripts to simulate various cyberattacks like brute force attempts and privilege escalation.
 2. Log and Monitor Activities: Utilize Azure's Log Analytics Workspace to run KQL queries that filter and analyze the data from these simulated attacks, capturing real-time events and alerts.
 
-
-SignInLogs for invalid username or password event alerts
-
-//![SignInLogs]()
-
-//![SignInLogs]()
 
 SecuityEvent logs display brute force attacks against Windows virtual machines 
 
@@ -131,17 +125,17 @@ This attack world map represents the large influx of malicious traffic resulted 
 
 ![NSG World Map](https://i.imgur.com/qXM3PJ5.png)
 
-Metrics were collected during the 2023-05-08 at 21:04 - 2023-05-09 at 21:04 timeframe
+Metrics were collected from 2023-05-08 at 18:50 - 2023-05-09 at 18:50.
 
-![Before Metrics](https://i.imgur.com/bQAGlBu.jpg)
+![Before Metrics](https://i.imgur.com/9E65SUn.png)
 
 ## After Hardening
 
 Attack world maps displayed no results, indicating that there has not been any new attacks after securing the environment.  
 
-Metrics were collected from 2024-08-10 at 18:50 to 2024-08-11 at 18:50 
+Metrics were collected from 2024-08-14 at 18:19 to 2024-08-15 at 18:19.
 
-![Before Metrics](https://i.imgur.com/Gj3SFT3.jpg)
+![Before Metrics](https://i.imgur.com/ug7mWjY.png)
 
 
 ## Conclusion

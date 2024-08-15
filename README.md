@@ -1,6 +1,4 @@
-![image](https://github.com/user-attachments/assets/2ff0f189-f94a-4e57-ad64-c175d58cdbe9)# Azure-SOC-Honeynet-Project (Live Traffic)
-
-![Cloud Honeynet / SOC](https://i.imgur.com/rj5UWwN.png)
+![8OEPFHM](https://github.com/user-attachments/assets/07fa6d9b-e46e-430b-bc05-6d9d35cbc7e6)![image](https://i.imgur.com/9AJnnUt.png)
 
 ## Introduction
 This tutorial will teach you how to set up and secure a honeynet on Microsoft Azure. A honeynet is a network designed to attract attackers so you can study their behaviors and improve security measures. This tutorial will guide you through the steps from creating a vulnerable honeynet environment to securing it using best practices aligned with NIST standards.
@@ -11,7 +9,7 @@ This tutorial will teach you how to set up and secure a honeynet on Microsoft Az
 
 ## Before Hardening
 
-![Before](https://i.imgur.com/WVa7UIB.png)
+![Before](https://imgur.com/8OEPFHM)
 
 ## After Hardening
 
